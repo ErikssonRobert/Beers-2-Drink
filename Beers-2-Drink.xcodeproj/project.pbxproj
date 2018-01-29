@@ -8,24 +8,33 @@
 
 /* Begin PBXBuildFile section */
 		72538D25201F2DAE00C647A4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 72538D24201F2DAE00C647A4 /* AppDelegate.m */; };
-		72538D28201F2DAE00C647A4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72538D27201F2DAE00C647A4 /* ViewController.m */; };
 		72538D2B201F2DAE00C647A4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72538D29201F2DAE00C647A4 /* Main.storyboard */; };
 		72538D2D201F2DAE00C647A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72538D2C201F2DAE00C647A4 /* Assets.xcassets */; };
 		72538D30201F2DAE00C647A4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72538D2E201F2DAE00C647A4 /* LaunchScreen.storyboard */; };
 		72538D33201F2DAE00C647A4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 72538D32201F2DAE00C647A4 /* main.m */; };
+		72538D3B201F2FFD00C647A4 /* MainTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72538D3A201F2FFD00C647A4 /* MainTableViewController.m */; };
+		72538D3E201F30EF00C647A4 /* BeerListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72538D3D201F30EF00C647A4 /* BeerListTableViewController.m */; };
+		72538D41201F311600C647A4 /* AddToListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72538D40201F311600C647A4 /* AddToListViewController.m */; };
+		72538D44201F54EA00C647A4 /* BeerDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72538D43201F54EA00C647A4 /* BeerDetailsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		72538D20201F2DAE00C647A4 /* Beers-2-Drink.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Beers-2-Drink.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		72538D23201F2DAE00C647A4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		72538D24201F2DAE00C647A4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		72538D26201F2DAE00C647A4 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		72538D27201F2DAE00C647A4 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		72538D2A201F2DAE00C647A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		72538D2C201F2DAE00C647A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		72538D2F201F2DAE00C647A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		72538D31201F2DAE00C647A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		72538D32201F2DAE00C647A4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		72538D39201F2FFD00C647A4 /* MainTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainTableViewController.h; sourceTree = "<group>"; };
+		72538D3A201F2FFD00C647A4 /* MainTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainTableViewController.m; sourceTree = "<group>"; };
+		72538D3C201F30EF00C647A4 /* BeerListTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BeerListTableViewController.h; sourceTree = "<group>"; };
+		72538D3D201F30EF00C647A4 /* BeerListTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BeerListTableViewController.m; sourceTree = "<group>"; };
+		72538D3F201F311600C647A4 /* AddToListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddToListViewController.h; sourceTree = "<group>"; };
+		72538D40201F311600C647A4 /* AddToListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddToListViewController.m; sourceTree = "<group>"; };
+		72538D42201F54EA00C647A4 /* BeerDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BeerDetailsViewController.h; sourceTree = "<group>"; };
+		72538D43201F54EA00C647A4 /* BeerDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BeerDetailsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,13 +69,19 @@
 			children = (
 				72538D23201F2DAE00C647A4 /* AppDelegate.h */,
 				72538D24201F2DAE00C647A4 /* AppDelegate.m */,
-				72538D26201F2DAE00C647A4 /* ViewController.h */,
-				72538D27201F2DAE00C647A4 /* ViewController.m */,
 				72538D29201F2DAE00C647A4 /* Main.storyboard */,
 				72538D2C201F2DAE00C647A4 /* Assets.xcassets */,
 				72538D2E201F2DAE00C647A4 /* LaunchScreen.storyboard */,
 				72538D31201F2DAE00C647A4 /* Info.plist */,
 				72538D32201F2DAE00C647A4 /* main.m */,
+				72538D39201F2FFD00C647A4 /* MainTableViewController.h */,
+				72538D3A201F2FFD00C647A4 /* MainTableViewController.m */,
+				72538D3C201F30EF00C647A4 /* BeerListTableViewController.h */,
+				72538D3D201F30EF00C647A4 /* BeerListTableViewController.m */,
+				72538D3F201F311600C647A4 /* AddToListViewController.h */,
+				72538D40201F311600C647A4 /* AddToListViewController.m */,
+				72538D42201F54EA00C647A4 /* BeerDetailsViewController.h */,
+				72538D43201F54EA00C647A4 /* BeerDetailsViewController.m */,
 			);
 			path = "Beers-2-Drink";
 			sourceTree = "<group>";
@@ -142,9 +157,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				72538D28201F2DAE00C647A4 /* ViewController.m in Sources */,
+				72538D3B201F2FFD00C647A4 /* MainTableViewController.m in Sources */,
+				72538D3E201F30EF00C647A4 /* BeerListTableViewController.m in Sources */,
 				72538D33201F2DAE00C647A4 /* main.m in Sources */,
 				72538D25201F2DAE00C647A4 /* AppDelegate.m in Sources */,
+				72538D41201F311600C647A4 /* AddToListViewController.m in Sources */,
+				72538D44201F54EA00C647A4 /* BeerDetailsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

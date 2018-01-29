@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  BeerListTableViewController.h
 //  Beers-2-Drink
 //
 //  Created by lösen är 0000 on 2018-01-29.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface BeerListTableViewController : UITableViewController
 
 @end
-
