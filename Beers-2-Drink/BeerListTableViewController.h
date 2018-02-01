@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AddToListViewController.h"
+#import "BeerDetailsViewController.h"
+#import "DictionaryModel.h"
 
 @interface BeerListTableViewController : UITableViewController
+
+@property (nonatomic) DictionaryModel *beerListModel;
 
 @end

@@ -7,9 +7,11 @@
 //
 
 #import "AddToListViewController.h"
+#import "BeerListTableViewController.h"
 
 @interface AddToListViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *textBeerName;
+@property (nonatomic) BeerListTableViewController *beerList;
 
 @end
 
@@ -21,6 +23,8 @@
 }
 
 - (IBAction)buttonAddBeerPressed:(id)sender {
+    [self.beers addObject:self.textBeerName.text];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

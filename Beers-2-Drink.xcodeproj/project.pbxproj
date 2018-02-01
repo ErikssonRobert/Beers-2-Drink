@@ -16,6 +16,8 @@
 		72538D3E201F30EF00C647A4 /* BeerListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72538D3D201F30EF00C647A4 /* BeerListTableViewController.m */; };
 		72538D41201F311600C647A4 /* AddToListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72538D40201F311600C647A4 /* AddToListViewController.m */; };
 		72538D44201F54EA00C647A4 /* BeerDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72538D43201F54EA00C647A4 /* BeerDetailsViewController.m */; };
+		72538D47201F5EA000C647A4 /* SavedListsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 72538D46201F5EA000C647A4 /* SavedListsModel.m */; };
+		72C09CF020233267005B4A27 /* DictionaryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C09CEF20233267005B4A27 /* DictionaryModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +37,10 @@
 		72538D40201F311600C647A4 /* AddToListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddToListViewController.m; sourceTree = "<group>"; };
 		72538D42201F54EA00C647A4 /* BeerDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BeerDetailsViewController.h; sourceTree = "<group>"; };
 		72538D43201F54EA00C647A4 /* BeerDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BeerDetailsViewController.m; sourceTree = "<group>"; };
+		72538D45201F5EA000C647A4 /* SavedListsModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SavedListsModel.h; sourceTree = "<group>"; };
+		72538D46201F5EA000C647A4 /* SavedListsModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SavedListsModel.m; sourceTree = "<group>"; };
+		72C09CEE20233267005B4A27 /* DictionaryModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DictionaryModel.h; sourceTree = "<group>"; };
+		72C09CEF20233267005B4A27 /* DictionaryModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DictionaryModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +88,10 @@
 				72538D40201F311600C647A4 /* AddToListViewController.m */,
 				72538D42201F54EA00C647A4 /* BeerDetailsViewController.h */,
 				72538D43201F54EA00C647A4 /* BeerDetailsViewController.m */,
+				72538D45201F5EA000C647A4 /* SavedListsModel.h */,
+				72538D46201F5EA000C647A4 /* SavedListsModel.m */,
+				72C09CEE20233267005B4A27 /* DictionaryModel.h */,
+				72C09CEF20233267005B4A27 /* DictionaryModel.m */,
 			);
 			path = "Beers-2-Drink";
 			sourceTree = "<group>";
@@ -157,8 +167,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72538D47201F5EA000C647A4 /* SavedListsModel.m in Sources */,
 				72538D3B201F2FFD00C647A4 /* MainTableViewController.m in Sources */,
 				72538D3E201F30EF00C647A4 /* BeerListTableViewController.m in Sources */,
+				72C09CF020233267005B4A27 /* DictionaryModel.m in Sources */,
 				72538D33201F2DAE00C647A4 /* main.m in Sources */,
 				72538D25201F2DAE00C647A4 /* AppDelegate.m in Sources */,
 				72538D41201F311600C647A4 /* AddToListViewController.m in Sources */,

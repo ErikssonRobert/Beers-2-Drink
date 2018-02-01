@@ -9,41 +9,34 @@
 #import "BeerListTableViewController.h"
 
 @interface BeerListTableViewController ()
-@property (nonatomic) NSMutableArray *beers;
 @end
 
 @implementation BeerListTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    self.beers = [self getBeerArray].mutableCopy;
+    self.beerListModel = [[DictionaryModel alloc] init];
+    [self initialize];
 }
 
-- (NSArray*)getBeerArray {
-    if ([self.title isEqualToString:@"Lager"]) {
-        NSArray *beerArray = @[@"Falcon", @"Corona"];
-        return beerArray;
-    } else if ([self.title isEqualToString:@"IPA"]) {
-        NSArray *beerArray = @[@"Bäss", @"Lite kiss i burk"];
-        return beerArray;
-    } else if ([self.title isEqualToString:@"Ale"]) {
-        NSArray *beerArray = @[@"piss", @"Lite kiss i burk"];
-        return beerArray;
-    } else if ([self.title isEqualToString:@"Vete öl"]) {
-        NSArray *beerArray = @[@"puss", @"Lite kiss i burk"];
-        return beerArray;
-    } else if ([self.title isEqualToString:@"Stout"]) {
-        NSArray *beerArray = @[@"päss", @"Lite kiss i burk"];
-        return beerArray;
-    }
-    NSArray *beerArray = @[@"Något", @"Gick fel!"];
-    return beerArray;
+- (void)viewWillAppear:(BOOL)animated {
+    [self.tableView reloadData];
+    [self saveBeerArray];
+}
+
+- (void)initialize {
+    [self getSavedBeerArray];
+    [self.tableView reloadData];
+}
+
+- (void)saveBeerArray {
+    NSLog(@"Spara array1");
+    [self.beerListModel saveBeerArray:self.title];
+}
+
+- (void)getSavedBeerArray {
+    NSLog(@"Hämta array1");
+    [self.beerListModel getSavedBeerArray:self.title];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -54,59 +47,53 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return self.beers.count;
+    return [self.beerListModel getNumberOfRows:section];
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Beers" forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"beers" forIndexPath:indexPath];
     
     // Configure the cell...
-    cell.textLabel.text = self.beers[indexPath.row];
-    
+    if (indexPath.section == 0) {
+        NSLog(@"section 1");
+        cell.backgroundColor = [UIColor whiteColor];
+        cell.textLabel.text = self.beerListModel.beers[indexPath.row];
+        for (int i = 0; i < self.beerListModel.importantBeer.count; i++) {
+            if ([self.beerListModel.beers[indexPath.row] isEqualToString:self.beerListModel.importantBeer[i]]) {
+                cell.backgroundColor = [UIColor colorWithRed:0.5f green:0.5f blue:1.0f alpha:1.0f];
+            }
+        }
+    } else if (indexPath.section == 1) {
+        cell.backgroundColor = [UIColor lightGrayColor];
+        cell.textLabel.text = self.beerListModel.testedBeers[indexPath.row];
+    }
     return cell;
 }
 
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        if (indexPath.section == 0) {
+            [self.beerListModel.beers removeObjectAtIndex:indexPath.row];
+            [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            [self saveBeerArray];
+            [self.tableView reloadData];
+        }
+        else if (indexPath.section == 1) {
+            [self.beerListModel.testedBeers removeObjectAtIndex:indexPath.row];
+            [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            [self saveBeerArray];
+            [self.tableView reloadData];
+        }
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 #pragma mark - Navigation
 
@@ -117,12 +104,26 @@
     
     if ([segue.identifier isEqualToString:@"Details"]) {
         UITableViewCell *cell = sender;
-        UITableViewController *details = [segue destinationViewController];
+        BeerDetailsViewController *details = [segue destinationViewController];
         details.title = cell.textLabel.text;
+        details.beers = self.beerListModel.beers;
+        details.testedBeers = self.beerListModel.testedBeers;
+        details.importantBeer = self.beerListModel.importantBeer;
     } else if ([segue.identifier isEqualToString:@"Add"]) {
-        UIViewController *addBeer = [segue destinationViewController];
+        AddToListViewController *addBeer = [segue destinationViewController];
         addBeer.title = @"Lägg till öl";
+        addBeer.beers = self.beerListModel.beers;
     }
 }
+
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    if (section == 0) {
+        return @"Måste smaka";
+    }
+    else
+        return @"Har smakat";
+}
+
+
 
 @end

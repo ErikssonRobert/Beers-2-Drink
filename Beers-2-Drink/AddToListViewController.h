@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface AddToListViewController : UIViewController
+@property (nonatomic) NSMutableArray *beers;
 
 @end
